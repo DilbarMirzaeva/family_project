@@ -23,36 +23,49 @@ public class Family {
         newChildren[children.length] = child;
         children = newChildren;
         child.setFamily(this);
+        System.out.println("Child added was succesfully:"+Arrays.toString(children));
     }
 
     public void deleteChild(int index) {
         if (index < 0 || index >= children.length) {
-            System.out.println("INVALID INDEX..");
+            System.out.print("Nothing has changed...//");
+            System.out.println(Arrays.toString(children));
         } else {
+            System.out.println("This child deleted=>"+children[index]);
+
             Human[] newChildren = new Human[children.length - 1];
             System.arraycopy(children, 0, newChildren, 0, index);
             System.arraycopy(children, index + 1, newChildren, index, children.length - index - 1);
 
             children = newChildren;
+
+            System.out.println("Deleted complete succesfully.");
+
         }
     }
 
     public void deleteChild(Human child){
         int i=0;
+        boolean bool=false;
         for (; i < children.length; i++) {
             if(child.equals(children[i])){
-                System.out.println(i);
+                bool=true;
                 break;
             }
         }
+        if (bool==false){
+            System.out.println("This child does not exist..");
+        }else {
+            int index = i;
+            System.out.println("This child deleted=>"+children[index]);
+            Human[] newChildren = new Human[children.length - 1];
+            System.arraycopy(children, 0, newChildren, 0, index);
+            System.arraycopy(children, index + 1, newChildren, index, children.length - index - 1);
 
-        int index=i;
-        Human[] newChildren=new Human[children.length-1];
-        System.arraycopy(children,0,newChildren,0,index);
-        System.arraycopy(children,index+1,newChildren,index,children.length-index-1);
+            children = newChildren;
 
-        children=newChildren;
-
+            System.out.println("Deleted complete succesfully.");
+        }
     }
 
 
@@ -112,7 +125,7 @@ public class Family {
         return (mother != null ? "mother=" + mother + ", " : "") +
                 (father != null ? "father=" + father + ", " : "") +
                 (children != null ? "children=" + Arrays.toString(children) + ", " : "") +
-                (pet != null ? "pet=" + pet : "");
+                (pet != null ? "pet=" + pet : "")+'}';
     }
 
 }

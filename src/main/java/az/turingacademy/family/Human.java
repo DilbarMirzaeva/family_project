@@ -156,7 +156,7 @@ public class Human {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, surname, year, iq, pet,family, Arrays.deepHashCode(schedule));
+        return Objects.hash(name, surname, year);
     }
 
     @Override
@@ -176,14 +176,14 @@ public class Human {
                     "name='" + name + '\'' +
                     ", surname='" + surname + '\'' +
                     ", year=" + year +
-                    "}";
+                    '}';
         } else if (constant == 3) {
             return "Human{" +
                     "name='" + name + '\'' +
                     ", surname='" + surname + '\'' +
                     ", year=" + year +
                     ", family(mother,father)=" + family +
-                    "}";
+                    '}';
         } else {
             return "Constructor is empty..";
         }
