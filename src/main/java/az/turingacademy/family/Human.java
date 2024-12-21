@@ -11,20 +11,18 @@ public class Human {
     private int year;
     private byte iq;
     private Pet pet;
-    private Human mother;
-    private Human father;
     private String[][] schedule;
-    int constant;
+    private Family family;
+    private int constant;
 
-    public Human(String name, String surname, int year, byte iq, Pet pet, Human mother, Human father, String[][] schedule) {
+    public Human(String name, String surname, int year, byte iq, Pet pet,Family family, String[][] schedule) {
         this.name = name;
         this.surname = surname;
         this.year = year;
         this.iq = iq;
         this.pet = pet;
-        this.mother = mother;
-        this.father = father;
         this.schedule = schedule;
+        this.family=family;
         constant = 1;
     }
 
@@ -35,12 +33,11 @@ public class Human {
         constant = 2;
     }
 
-    public Human(String name, String surname, int year, Human mother, Human father) {
+    public Human(String name, String surname, int year, Family family) {
         this.name = name;
         this.surname = surname;
         this.year = year;
-        this.mother = mother;
-        this.father = father;
+        this.family=family;
         constant = 3;
     }
 
@@ -129,21 +126,6 @@ public class Human {
         this.pet = pet;
     }
 
-    public Human getMother() {
-        return mother;
-    }
-
-    public void setMother(Human mother) {
-        this.mother = mother;
-    }
-
-    public Human getFather() {
-        return father;
-    }
-
-    public void setFather(Human father) {
-        this.father = father;
-    }
 
     public String[][] getSchedule() {
         return schedule;
@@ -153,19 +135,28 @@ public class Human {
         this.schedule = schedule;
     }
 
+    public Family getFamily() {
+        return family;
+    }
+
+    public void setFamily(Family family) {
+        this.family = family;
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Human human = (Human) o;
         return year == human.year && iq == human.iq && Objects.equals(name, human.name) && Objects.equals(surname, human.surname) &&
-                Objects.equals(pet, human.pet) && Objects.equals(mother, human.mother) && Objects.equals(father, human.father) &&
+                Objects.equals(pet, human.pet) && Objects.equals(family,human.family) &&
                 Objects.deepEquals(schedule, human.schedule);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, surname, year, iq, pet, mother, father, Arrays.deepHashCode(schedule));
+        return Objects.hash(name, surname, year, iq, pet,family, Arrays.deepHashCode(schedule));
     }
 
     @Override
@@ -177,8 +168,7 @@ public class Human {
                     ", year=" + year +
                     ", iq=" + iq +
                     ", pet=" + pet +
-                    ", mother=" + mother +
-                    ", father=" + father +
+                    ", family(mother,father)=" + family +
                     ", schedule=" + Arrays.toString(schedule) +
                     '}';
         } else if (constant == 2) {
@@ -192,8 +182,7 @@ public class Human {
                     "name='" + name + '\'' +
                     ", surname='" + surname + '\'' +
                     ", year=" + year +
-                    ", mother=" + mother +
-                    ", father=" + father +
+                    ", family(mother,father)=" + family +
                     "}";
         } else {
             return "Constructor is empty..";

@@ -11,6 +11,7 @@ public class Pet {
     private byte trickLevel;
     private String[] habits;
     String constant;
+    private Family family;
 
     public Pet(String species, String nickname, int age, byte trickLevel, String[] habits) {
         this.species = species;
