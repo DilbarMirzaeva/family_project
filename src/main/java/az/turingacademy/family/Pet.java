@@ -5,14 +5,15 @@ import java.util.Objects;
 
 public class Pet {
 
-    private String species;
+    private Species species;
     private String nickname;
     private int age;
     private byte trickLevel;
     private String[] habits;
     String constant;
+    private Family family;
 
-    public Pet(String species, String nickname, int age, byte trickLevel, String[] habits) {
+    public Pet(Species species, String nickname, int age, byte trickLevel, String[] habits) {
         this.species = species;
         this.nickname = nickname;
         this.age = age;
@@ -21,7 +22,7 @@ public class Pet {
         constant = "first";
     }
 
-    public Pet(String species, String nickname) {
+    public Pet(Species species, String nickname) {
         this.species = species;
         this.nickname = nickname;
         constant = "second";
@@ -46,12 +47,9 @@ public class Pet {
 
 
     public String getSpecies() {
-        return species;
+        return species != null ? species.getSpecies() : "Unknown";
     }
 
-    public void setSpecies(String species) {
-        this.species = species;
-    }
 
     public String getNickname() {
         return nickname;
@@ -102,7 +100,7 @@ public class Pet {
     public String toString() {
         if (constant.equals("first")) {
             return "Pet{" +
-                    "species='" + species + '\'' +
+                    (species != null ? species+"=>"+ species.getSpecies() : "Unknown species" )+ '\'' +
                     ", nickname='" + nickname + '\'' +
                     ", age=" + age +
                     ", trickLevel=" + trickLevel +
@@ -110,7 +108,7 @@ public class Pet {
                     '}';
         } else if (constant.equals("second")) {
             return "Pet{" +
-                    "species='" + species + '\'' +
+                    (species != null ? species+"=>"+species.getSpecies() : "Unknown species" )+ '\'' +
                     ", nickname='" + nickname
                     ;
         } else {
