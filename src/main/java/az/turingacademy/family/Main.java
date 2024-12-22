@@ -9,14 +9,20 @@ public class Main {
         Family family=new Family(mother,father);
         family.setPet(pet1);
         System.out.println(family);
+
         Human child1 = new Human("Nigar", "Quliyeva", 2004);
        Human child2 = new Human("Murad", "Quliyev", 2006);
+
        family.addChild(child1);
        family.addChild(child2);
        family.deleteChild(child1);
        family.setPet(pet1);
-
         System.out.println(family);
+
+        System.out.println("\nDays of week:");
+        for(DayOfWeek days:DayOfWeek.values()){
+            System.out.println(days.name());
+        }
 
         Human child3 = new Human("Murad", "Quliyev", 2006);
 
