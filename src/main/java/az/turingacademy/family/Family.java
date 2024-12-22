@@ -19,11 +19,11 @@ public class Family {
 
     public void addChild(Human child) {
         Human[] newChildren = new Human[children.length + 1];
-        System.arraycopy(children,0,newChildren,0,children.length);
+        System.arraycopy(children, 0, newChildren, 0, children.length);
         newChildren[children.length] = child;
         children = newChildren;
         child.setFamily(this);
-        System.out.println("Child added was succesfully:"+Arrays.toString(children));
+        System.out.println("Child added was succesfully:" + Arrays.toString(children));
     }
 
     public void deleteChild(int index) {
@@ -31,7 +31,7 @@ public class Family {
             System.out.print("Nothing has changed...//");
             System.out.println(Arrays.toString(children));
         } else {
-            System.out.println("This child deleted=>"+children[index]);
+            System.out.println("This child deleted=>" + children[index]);
 
             Human[] newChildren = new Human[children.length - 1];
             System.arraycopy(children, 0, newChildren, 0, index);
@@ -44,20 +44,20 @@ public class Family {
         }
     }
 
-    public void deleteChild(Human child){
-        int i=0;
-        boolean bool=false;
+    public void deleteChild(Human child) {
+        int i = 0;
+        boolean bool = false;
         for (; i < children.length; i++) {
-            if(child.equals(children[i])){
-                bool=true;
+            if (child.equals(children[i])) {
+                bool = true;
                 break;
             }
         }
-        if (bool==false){
+        if (bool == false) {
             System.out.println("This child does not exist..");
-        }else {
+        } else {
             int index = i;
-            System.out.println("This child deleted=>"+children[index]);
+            System.out.println("This child deleted=>" + children[index]);
             Human[] newChildren = new Human[children.length - 1];
             System.arraycopy(children, 0, newChildren, 0, index);
             System.arraycopy(children, index + 1, newChildren, index, children.length - index - 1);
@@ -125,7 +125,7 @@ public class Family {
         return (mother != null ? "mother=" + mother + ", " : "") +
                 (father != null ? "father=" + father + ", " : "") +
                 (children != null ? "children=" + Arrays.toString(children) + ", " : "") +
-                (pet != null ? "pet=" + pet : "")+'}';
+                (pet != null ? "pet=" + pet : "") + '}';
     }
 
 }

@@ -3,7 +3,7 @@ package az.turingacademy.family;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Pet {
+public abstract class Pet {
 
     private Species species;
     private String nickname;
@@ -13,8 +13,8 @@ public class Pet {
     String constant;
     private Family family;
 
-    public Pet(Species species, String nickname, int age, byte trickLevel, String[] habits) {
-        this.species = species;
+    public Pet( String nickname, int age, byte trickLevel, String[] habits) {
+        this.species=Species.UNKNOWN;
         this.nickname = nickname;
         this.age = age;
         this.trickLevel = trickLevel;
@@ -22,8 +22,8 @@ public class Pet {
         constant = "first";
     }
 
-    public Pet(Species species, String nickname) {
-        this.species = species;
+    public Pet(String nickname) {
+        this.species=Species.UNKNOWN;
         this.nickname = nickname;
         constant = "second";
     }
@@ -37,19 +37,16 @@ public class Pet {
         System.out.println("I am eating");
     }
 
-    public void respond() {
-        System.out.println("Hello owner.I am " + nickname + ".I miss you!");
+    public abstract void respond();
+
+
+    public void setSpecies(Species species) {
+        this.species=(species != null) ? species : Species.UNKNOWN;
     }
 
-    public void foul() {
-        System.out.println("I need to cover it up");
+    public Species getSpecies() {
+        return species;
     }
-
-
-    public String getSpecies() {
-        return species != null ? species.getSpecies() : "Unknown";
-    }
-
 
     public String getNickname() {
         return nickname;
@@ -100,7 +97,7 @@ public class Pet {
     public String toString() {
         if (constant.equals("first")) {
             return "Pet{" +
-                    (species != null ? species+"=>"+ species.getSpecies() : "Unknown species" )+ '\'' +
+                    "Species="+species+ '\'' +
                     ", nickname='" + nickname + '\'' +
                     ", age=" + age +
                     ", trickLevel=" + trickLevel +
@@ -108,9 +105,8 @@ public class Pet {
                     '}';
         } else if (constant.equals("second")) {
             return "Pet{" +
-                    (species != null ? species+"=>"+species.getSpecies() : "Unknown species" )+ '\'' +
-                    ", nickname='" + nickname
-                    ;
+                    "Species="+species+ '\'' +
+                    ", nickname='" + nickname+"}"  ;
         } else {
             return "constructor is empty..";
         }

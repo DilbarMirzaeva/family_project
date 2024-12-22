@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Objects;
 import java.util.Random;
 
-public class Human {
+public  class Human implements HumanCreator{
 
     private String name;
     private String surname;
@@ -15,14 +15,14 @@ public class Human {
     private Family family;
     private int constant;
 
-    public Human(String name, String surname, int year, byte iq, Pet pet,Family family, String[][] schedule) {
+    public Human(String name, String surname, int year, byte iq, Pet pet, Family family, String[][] schedule) {
         this.name = name;
         this.surname = surname;
         this.year = year;
         this.iq = iq;
         this.pet = pet;
         this.schedule = schedule;
-        this.family=family;
+        this.family = family;
         constant = 1;
     }
 
@@ -37,7 +37,7 @@ public class Human {
         this.name = name;
         this.surname = surname;
         this.year = year;
-        this.family=family;
+        this.family = family;
         constant = 3;
     }
 
@@ -150,7 +150,7 @@ public class Human {
         if (o == null || getClass() != o.getClass()) return false;
         Human human = (Human) o;
         return year == human.year && iq == human.iq && Objects.equals(name, human.name) && Objects.equals(surname, human.surname) &&
-                Objects.equals(pet, human.pet) && Objects.equals(family,human.family) &&
+                Objects.equals(pet, human.pet) && Objects.equals(family, human.family) &&
                 Objects.deepEquals(schedule, human.schedule);
     }
 
