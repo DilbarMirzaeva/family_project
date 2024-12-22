@@ -169,7 +169,7 @@ public  class Human implements HumanCreator{
                     ", iq=" + iq +
                     ", pet=" + pet +
                     ", family(mother,father)=" + family +
-                    ", schedule=" + Arrays.toString(schedule) +
+                    ", schedule=" + Arrays.deepToString(schedule) +
                     '}';
         } else if (constant == 2) {
             return "Human{" +
