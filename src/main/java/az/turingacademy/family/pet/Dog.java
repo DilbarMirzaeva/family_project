@@ -1,17 +1,18 @@
-package az.turingacademy.family;
+package az.turingacademy.family.pet;
 
-public class Dog extends Pet{
+import java.util.Set;
+
+public class Dog extends Pet implements Foul{
 
     public Dog(String nickname){
         super(nickname);
         setSpecies(Species.DOG);
     }
-    public Dog( String nickname, int age, byte trickLevel, String[] habits) {
+    public Dog( String nickname, int age, Integer trickLevel, Set<String> habits) {
         super(nickname, age, trickLevel, habits);
         setSpecies(Species.DOG);
 
     }
-
 
     @Override
     public void eat() {
@@ -21,5 +22,10 @@ public class Dog extends Pet{
     @Override
     public void respond() {
         System.out.println("Loyal,Friendly");
+    }
+
+    @Override
+    public void foul() {
+        System.out.println("I messed up again!");
     }
 }

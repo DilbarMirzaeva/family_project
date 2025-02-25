@@ -1,4 +1,6 @@
-package az.turingacademy.family;
+package az.turingacademy.family.pet;
+
+import java.util.Set;
 
 public class Fish extends Pet {
     public Fish(String nickname) {
@@ -6,7 +8,7 @@ public class Fish extends Pet {
         setSpecies(Species.FISH);
     }
 
-    public Fish(String nickname, int age, byte trickLevel, String[] habits) {
+    public Fish(String nickname, int age, Integer trickLevel, Set<String> habits) {
         super(nickname, age, trickLevel, habits);
         setSpecies(Species.FISH);
     }

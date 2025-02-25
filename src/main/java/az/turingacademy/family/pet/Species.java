@@ -1,4 +1,4 @@
-package az.turingacademy.family;
+package az.turingacademy.family.pet;
 
 public enum Species {
     DOG,

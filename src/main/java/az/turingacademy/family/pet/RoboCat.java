@@ -1,4 +1,6 @@
-package az.turingacademy.family;
+package az.turingacademy.family.pet;
+
+import java.util.Set;
 
 public class RoboCat extends Pet {
     public RoboCat(String nickname) {
@@ -6,12 +8,11 @@ public class RoboCat extends Pet {
         setSpecies(Species.ROBOCAT);
     }
 
-    public RoboCat(String nickname, int age, byte trickLevel, String[] habits) {
+    public RoboCat(String nickname, int age, Integer trickLevel, Set<String> habits) {
         super(nickname, age, trickLevel, habits);
         setSpecies(Species.ROBOCAT);
 
     }
-
 
     @Override
     public void respond() {

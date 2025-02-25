@@ -1,4 +1,6 @@
-package az.turingacademy.family;
+package az.turingacademy.family.pet;
+
+import java.util.Set;
 
 public class DomesticCat extends Pet implements Foul {
 
@@ -7,7 +9,7 @@ public class DomesticCat extends Pet implements Foul {
         setSpecies(Species.DOMESTICCAT);
     }
 
-    public DomesticCat(String nickname, int age, byte trickLevel, String[] habits) {
+    public DomesticCat(String nickname, int age, Integer trickLevel, Set<String> habits) {
         super(nickname, age, trickLevel, habits);
         setSpecies(Species.DOMESTICCAT);
     }
