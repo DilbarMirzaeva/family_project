@@ -1,25 +1,26 @@
 package az.turingacademy.family;
 
+import az.turingacademy.family.human.Family;
+import az.turingacademy.family.human.Man;
+import az.turingacademy.family.human.Woman;
+import az.turingacademy.family.pet.Dog;
+import az.turingacademy.family.pet.Pet;
+
 public class Main {
     public static void main(String[] args) {
 
+        Woman mother=new Woman("Leyla","Mammadova","21/12/1985",99);
+        Man father=new Man("Murad","Mammadov","18/12/1982",90);
+        Family family=new Family(mother,father);
 
-        Dog dog = new Dog("Lessi");
-        System.out.println(dog.toString());
+        Pet pet1=new Dog("Lessi");
+        family.addPet(pet1);
+        System.out.println(family);
 
-        Pet fish=new Fish("Ballom",1,(byte)20,new String[]{"eat","swim"});
-        System.out.println(fish.toString());
-
-        RoboCat roboCat=new RoboCat("gptCat");
-        System.out.println("species:"+roboCat.getSpecies()+", name:"+roboCat.getNickname());
-
-        fish.eat();
-        dog.respond();
-
-        Human mother = new Human("Lale", "Quliyeva", 1980);
-        Human father = new Human("Nihat", "Quliyev", 1978);
-        Human human=new Human();
-        human.bornChild(mother,father,2000);
+        family.bornChild();
+        System.out.println(family);
+        family.deleteChild(0);
+        System.out.println(family);
 
     }
 }
