@@ -3,7 +3,6 @@ package az.turingacademy.family.human;
 import az.turingacademy.family.pet.Pet;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
@@ -11,7 +10,7 @@ public class Human {
 
     private String name;
     private String surname;
-    private LocalDate year;
+    private LocalDate birthDate;
     private Integer iq;
     private Pet pet;
     private Map<DayOfWeek, String> schedule = new HashMap<>();
@@ -20,7 +19,7 @@ public class Human {
     public Human(String name, String surname, String year, Integer iq, Pet pet, Family family, Map<DayOfWeek, String> schedule) {
         this.name = name;
         this.surname = surname;
-        this.year = LocalDate.parse(year, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        this.birthDate = LocalDate.parse(year, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         this.iq = iq;
         this.pet = pet;
         this.schedule = schedule != null ? new HashMap<>(schedule) : new HashMap<>();
@@ -30,13 +29,13 @@ public class Human {
     public Human(String name, String surname, String year) {
         this.name = name;
         this.surname = surname;
-        this.year = LocalDate.parse(year, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        this.birthDate = LocalDate.parse(year, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     }
 
     public Human(String name, String surname, String year, Integer iq) {
         this.name = name;
         this.surname = surname;
-        this.year = LocalDate.parse(year, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        this.birthDate = LocalDate.parse(year, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         this.iq = iq;
     }
 
@@ -99,12 +98,12 @@ public class Human {
         this.surname = surname;
     }
 
-    public LocalDate getYear() {
-        return year;
+    public LocalDate getBirthDate() {
+        return birthDate;
     }
 
-    public void setYear(LocalDate year) {
-        this.year = year;
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
     }
 
     public Integer getIq() {
@@ -145,12 +144,12 @@ public class Human {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Human human = (Human) o;
-        return Objects.equals(name, human.name) && Objects.equals(surname, human.surname) && Objects.equals(year, human.year) && Objects.equals(iq, human.iq) && Objects.equals(pet, human.pet) && Objects.equals(schedule, human.schedule) && Objects.equals(family, human.family);
+        return Objects.equals(name, human.name) && Objects.equals(surname, human.surname) && Objects.equals(birthDate, human.birthDate) && Objects.equals(iq, human.iq) && Objects.equals(pet, human.pet) && Objects.equals(schedule, human.schedule) && Objects.equals(family, human.family);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, surname, year, iq, pet, schedule, family);
+        return Objects.hash(name, surname, birthDate, iq, pet, schedule, family);
     }
 
 
@@ -159,7 +158,7 @@ public class Human {
         return "Human{" +
                 (name != null ? "name='" + name : "") + '\'' +
                 (surname != null ? ", surname='" + surname : "") + '\'' +
-                (year != null ? ", year=" + year : "") +
+                (birthDate != null ? ", year=" + birthDate : "") +
                 (iq != null ? ", iq=" + iq : "") +
                 (pet != null ? ", pet=" + pet : "") +
                 (schedule.isEmpty() ? "" : ", schedule=" + schedule) +
