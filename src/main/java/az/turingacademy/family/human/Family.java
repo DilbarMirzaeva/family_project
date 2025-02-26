@@ -22,16 +22,14 @@ public class Family implements HumanCreator {
         this.father = father;
         this.mother = mother;
         this.children = new ArrayList<>(children);
-        this.pets = pet;
+        this.pets = pet!=null? new HashSet<>(pet):new HashSet<>();
     }
 
     public boolean deleteChild(int index) {
         if (index >= 0 && index < children.size()) {
             Human removeChild = children.remove(index);
-            if (removeChild != null) {
-                removeChild.setFamily(null);
-                return true;
-            }
+            removeChild.setFamily(null);
+            return true;
         }
         return false;
     }
@@ -50,6 +48,10 @@ public class Family implements HumanCreator {
     }
 
     public void addChild(Human child) {
+        if (child == null) {
+            System.out.println("Child could not be 'null'");
+            return;
+        }
         children.add(child);
         child.setFamily(this);
     }
@@ -123,7 +125,7 @@ public class Family implements HumanCreator {
         return (mother != null ? "mother=" + mother + ", " : "") +
                 (father != null ? "father=" + father + ", " : "") +
                 (children.isEmpty() ? "" : "children=" + children + ", ") +
-                (pets.isEmpty()? "": "pet(s)=" + pets ) + '}';
+                (pets.isEmpty() ? "" : "pet(s)=" + pets) + '}';
     }
 
 }

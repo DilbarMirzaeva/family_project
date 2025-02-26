@@ -6,12 +6,12 @@ import java.util.Map;
 
 public final class Man extends Human {
 
-    public Man(String name, String surname, String year,Integer iq) {
-        super(name, surname, year,iq);
+    public Man(String name, String surname, String birthDate,Integer iq) {
+        super(name, surname, birthDate,iq);
     }
 
-    public Man(String name, String surname, String year) {
-        super(name, surname, year);
+    public Man(String name, String surname, String birthDate) {
+        super(name, surname, birthDate);
     }
 
 
