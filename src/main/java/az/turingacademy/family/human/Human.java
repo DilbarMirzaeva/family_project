@@ -16,26 +16,26 @@ public class Human {
     private Map<DayOfWeek, String> schedule = new HashMap<>();
     private Family family;
 
-    public Human(String name, String surname, String year, Integer iq, Pet pet, Family family, Map<DayOfWeek, String> schedule) {
+    public Human(String name, String surname, String  birthDate, Integer iq, Pet pet, Family family, Map<DayOfWeek, String> schedule) {
         this.name = name;
         this.surname = surname;
-        this.birthDate = LocalDate.parse(year, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        this.birthDate = LocalDate.parse(birthDate, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         this.iq = iq;
         this.pet = pet;
         this.schedule = schedule != null ? new HashMap<>(schedule) : new HashMap<>();
         this.family = family;
     }
 
-    public Human(String name, String surname, String year) {
+    public Human(String name, String surname, String birthDate) {
         this.name = name;
         this.surname = surname;
-        this.birthDate = LocalDate.parse(year, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        this.birthDate = LocalDate.parse(birthDate, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     }
 
-    public Human(String name, String surname, String year, Integer iq) {
+    public Human(String name, String surname, String birthDate, Integer iq) {
         this.name = name;
         this.surname = surname;
-        this.birthDate = LocalDate.parse(year, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        this.birthDate = LocalDate.parse(birthDate, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         this.iq = iq;
     }
 
@@ -155,7 +155,7 @@ public class Human {
 
     @Override
     public String toString() {
-        return "Human{" +
+        return "{" +
                 (name != null ? "name='" + name : "") + '\'' +
                 (surname != null ? ", surname='" + surname : "") + '\'' +
                 (birthDate != null ? ", year=" + birthDate : "") +

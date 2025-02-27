@@ -1,4 +1,4 @@
-package az.turingacademy.family.dao;
+package az.turingacademy.family.base.dao;
 
 import az.turingacademy.family.human.Family;
 

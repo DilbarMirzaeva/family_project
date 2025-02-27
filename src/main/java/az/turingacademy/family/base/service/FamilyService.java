@@ -1,6 +1,6 @@
-package az.turingacademy.family.service;
+package az.turingacademy.family.base.service;
 
-import az.turingacademy.family.dao.FamilyDao;
+import az.turingacademy.family.base.dao.FamilyDao;
 import az.turingacademy.family.human.Family;
 import az.turingacademy.family.human.Human;
 import az.turingacademy.family.human.Man;
@@ -58,6 +58,10 @@ public class FamilyService {
     public void createNewFamily(Human father, Human mother){
             Family family=new Family(mother,father);
             familyDao.saveFamily(family);
+    }
+
+    public void createNewFamily(Family family) {
+        familyDao.saveFamily(family);
     }
 
     public boolean deleteFamilyByIndex(int index){

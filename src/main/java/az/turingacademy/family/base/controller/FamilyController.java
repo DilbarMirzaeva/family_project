@@ -1,10 +1,9 @@
-package az.turingacademy.family.controller;
+package az.turingacademy.family.base.controller;
 
-import az.turingacademy.family.dao.FamilyDao;
 import az.turingacademy.family.human.Family;
 import az.turingacademy.family.human.Human;
 import az.turingacademy.family.pet.Pet;
-import az.turingacademy.family.service.FamilyService;
+import az.turingacademy.family.base.service.FamilyService;
 import java.util.List;
 import java.util.Set;
 
@@ -15,7 +14,7 @@ public class FamilyController {
         this.familyService = familyService;
     }
 
-    List<Family> getAllFamilies() {
+    public List<Family> getAllFamilies() {
         return familyService.getAllFamilies();
     }
 
@@ -49,6 +48,10 @@ public class FamilyController {
 
     public void createNewFamily(Human father, Human mother) {
         familyService.createNewFamily(father, mother);
+    }
+
+    public void createNewFamily(Family family) {
+        familyService.createNewFamily(family);
     }
 
     public boolean deleteFamilyByIndex(int index) {
