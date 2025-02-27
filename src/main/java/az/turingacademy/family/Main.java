@@ -46,7 +46,7 @@ public class Main {
         System.out.println("----------------");
         familyController.bornChild(family1, "John", "Jessica");
         familyController.bornChild(family3,"Cedric","Jasmine");
-        familyController.bornChild(family3,"Mete","");
+        familyController.bornChild(family3,"Mete","Shayla");
         Pet pet2 = new DomesticCat("Bethoven");
         familyController.addPet(2, pet2);
         familyController.displayAllFamilies();

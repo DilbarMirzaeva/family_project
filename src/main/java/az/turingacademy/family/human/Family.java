@@ -22,7 +22,7 @@ public class Family implements HumanCreator {
         this.father = father;
         this.mother = mother;
         this.children = new ArrayList<>(children);
-        this.pets = pet!=null? new HashSet<>(pet):new HashSet<>();
+        this.pets = pet != null ? new HashSet<>(pet) : new HashSet<>();
     }
 
     public boolean deleteChild(int index) {
@@ -107,6 +107,24 @@ public class Family implements HumanCreator {
         this.pets = pets;
     }
 
+    public void prettyFormat() {
+        System.out.println("Family :");
+        System.out.println("\tmother: " + mother );
+        System.out.println("\tfather: " + father );
+        if(!children.isEmpty()){
+            System.out.println("\tchildren: ");
+            for (Human child : children) {
+                if (child instanceof Man) {
+                    System.out.println("\t\tboy: "+child);
+                }else {
+                    System.out.println("\t\tgirl: "+child);
+                }
+            }
+        }
+        System.out.println("\tpets: "+pets);
+        System.out.println("---------------------------");
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -122,9 +140,9 @@ public class Family implements HumanCreator {
 
     @Override
     public String toString() {
-        return (mother != null ? "mother=" + mother + ", " : "") +
-                (father != null ? "father=" + father + ", " : "") +
-                (children.isEmpty() ? "" : "children=" + children + ", ") +
+        return (mother != null ? "mother: " + mother + ", " : "") +
+                (father != null ? "father: " + father + ", " : "") +
+                (children.isEmpty() ? "" : "children: " + children + ", ") +
                 (pets.isEmpty() ? "" : "pet(s)=" + pets) + '}';
     }
 

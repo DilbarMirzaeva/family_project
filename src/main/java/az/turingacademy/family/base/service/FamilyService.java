@@ -36,11 +36,7 @@ public class FamilyService {
     }
 
     public void displayAllFamilies(){
-       int index=0;
-       for(Family family:getAllFamilies()){
-           System.out.println(index+":"+family);
-           index++;
-       }
+        getAllFamilies().forEach(Family::prettyFormat);
     }
 
     public List<Family> getFamiliesBiggerThan(int count) {
