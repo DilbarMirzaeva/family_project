@@ -1,11 +1,13 @@
 package az.turingacademy.family.human;
 
 import az.turingacademy.family.pet.Pet;
+import specialException.FamilyOverflowException;
 
 import java.util.*;
 
 public class Family implements HumanCreator {
 
+     static final int maxSize=5;
     private Human mother;
     private Human father;
     private List<Human> children;
@@ -48,6 +50,9 @@ public class Family implements HumanCreator {
     }
 
     public void addChild(Human child) {
+        if(countFamily()+1>maxSize){
+            throw new FamilyOverflowException("Can't add child.Family size exceeds limit of "+maxSize);
+        }
         if (child == null) {
             System.out.println("Child could not be 'null'");
             return;
