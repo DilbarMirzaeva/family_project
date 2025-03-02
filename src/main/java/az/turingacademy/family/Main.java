@@ -45,8 +45,8 @@ public class Main {
         familyController.displayAllFamilies();
         System.out.println("----------------");
         familyController.bornChild(family1, "John", "Jessica");
-        familyController.bornChild(family3,"Cedric","Jasmine");
-        familyController.bornChild(family3,"Mete","Shayla");
+        familyController.bornChild(family3, "Cedric", "Jasmine");
+        familyController.bornChild(family3, "Mete", "Shayla");
         Pet pet2 = new DomesticCat("Bethoven");
         familyController.addPet(2, pet2);
         familyController.displayAllFamilies();
@@ -55,5 +55,7 @@ public class Main {
         System.out.println("----------------");
         System.out.println(familyController.countFamiliesWithMemberNumber(4));
 
+        System.out.println("*****************************88");
+        FamilyMenu.menu();
     }
 }

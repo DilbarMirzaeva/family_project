@@ -4,6 +4,8 @@ import az.turingacademy.family.human.Family;
 import az.turingacademy.family.human.Human;
 import az.turingacademy.family.pet.Pet;
 import az.turingacademy.family.base.service.FamilyService;
+import specialException.FamilyOverflowException;
+
 import java.util.List;
 import java.util.Set;
 
@@ -59,11 +61,19 @@ public class FamilyController {
     }
 
     public void bornChild(Family family, String masculineName, String feminineName) {
-        familyService.bornChild(family, masculineName, feminineName);
+        try{
+            familyService.bornChild(family, masculineName, feminineName);
+        }catch (FamilyOverflowException e){
+            System.out.println(e.getMessage());
+        }
     }
 
     public void adoptChild(Family family, Human child) {
-        familyService.adoptChild(family, child);
+        try {
+            familyService.adoptChild(family, child);
+        }catch (FamilyOverflowException e){
+            System.out.println(e.getMessage());
+        }
     }
 
     public void deleteAllChildrenOlderThan(int age) {
