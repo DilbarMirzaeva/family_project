@@ -30,7 +30,7 @@ public class FamilyMenu {
                     4.Show families with fewer than a certain number of members
                     5.Count families wit h a specific number of members
                     6.Create a new family
-                    7. Delete a family by index
+                    7.Delete a family by index
                     8.Edit a family by index
                     9.Remove all children over a certain age
                     10.Exit

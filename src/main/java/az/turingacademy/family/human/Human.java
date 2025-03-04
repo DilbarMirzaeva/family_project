@@ -21,7 +21,6 @@ public class Human {
         this.surname = surname;
         this.birthDate = LocalDate.parse(birthDate, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         this.iq = iq;
-        this.pet = pet;
         this.schedule = schedule != null ? new HashMap<>(schedule) : new HashMap<>();
         this.family = family;
     }

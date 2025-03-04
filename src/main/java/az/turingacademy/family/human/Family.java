@@ -44,7 +44,6 @@ public class Family implements HumanCreator {
         return false;
     }
 
-
     public int countFamily() {
         return children.size() + 2;
     }
